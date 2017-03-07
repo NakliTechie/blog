@@ -1,3 +1,5 @@
+from django.template import Context
+from django.template.loader import get_template
 from django.http import HttpResponse, Http404
 import datetime
 
@@ -9,7 +11,8 @@ def index(request):
 
 def current_datetime(request):
     now = datetime.datetime.now()
-    html = "It is now %s" % now
+    t = get_template('current_datetime.html')
+    html = t.render(Context({'current_date': now}))
     return HttpResponse(html)
 
 def hours_ahead(request, offset):
