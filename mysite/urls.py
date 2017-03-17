@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from mysite.views import hello, index, current_datetime, hours_ahead
+from mysite.views import hello, index, current_datetime, hours_ahead, contact
 #from books.views import display_met, search_form
 from books import views
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^resp/', views.display_met),
     url(r'^search_form/$', views.search_form),
     url(r'^search/$', views.search),
+    url(r'^contact$', contact)
 ]
